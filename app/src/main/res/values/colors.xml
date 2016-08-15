@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="orange">#ffffdc7e</color>
+    <color name="grey">#ffd3d3d3</color>
+    <color name="green">#ff8dd304</color>
+    <color name="blue">#ff82e0ff</color>
+    <color name="yellow">#fffffbae</color>
+    <color name="cyan">#00FFFF</color>
+    <color name="lblue">#ADD8E6</color>
+    <color name="slateblue">#737CA1</color>
+    <color name="silver">#C0C0C0</color>
+    <color name="red">#fff10800</color>
+    <color name="list_item_pressed">#1A000000</color>
 </resources>

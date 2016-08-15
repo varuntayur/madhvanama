@@ -1,3 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Madhvanama</string>
+
+    <string name="app_name">MadhvaNama</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="loading_please_wait">Loading. Please wait...</string>
+
+     <string name="app_descrip">Serves as a complete reference to all shlokas with their meanings.
+        Learn and Listen to the complete Madhvanama with detailed explanation about them.
+    </string>
+    <string name="app_help">Swipe to the left/right to browse through all the shlokas.
+    </string>
+    <string name="app_credits">All images/media are copyrights of the respective owners wherever applicable.</string>
+    <string name="app_author">&#169; Varun M Tayur, 2016</string>
+    <string name="app_credits_title">Credits</string>
 </resources>

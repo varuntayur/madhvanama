@@ -1,0 +1,97 @@
+<!--
+  Copyright 2012 The Android Open Source Project
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific getLanguageEnum governing permissions and
+  limitations under the License.
+  -->
+
+<ScrollView
+    android:id="@+id/content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Dummy content. -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:descendantFocusability="blocksDescendants"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/sectiontitle"
+            style="?android:textAppearanceMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:textStyle="bold"/>
+
+
+        <TextView
+            android:id="@+id/shlokalocallangtext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|fill"
+            android:layout_marginBottom="8dp"
+            android:lineSpacingMultiplier="1.0"
+            />
+
+
+        <TextView
+            android:id="@+id/shlokaentext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|fill"
+            android:lineSpacingMultiplier="1.0"
+            />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:padding="2dp"
+            android:layout_margin="3dp">
+
+            <ImageButton
+                android:id="@+id/imageButtonPause"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:src="@drawable/ic_media_stop"/>
+
+            <ImageButton
+                android:id="@+id/imageButtonPlay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:src="@drawable/ic_media_play"/>
+
+        </LinearLayout>
+
+
+        <WebView
+            android:id="@+id/shlokaexplanation"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"/>
+
+        <WebView
+            android:id="@+id/shlokaphala"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"/>
+    </LinearLayout>
+
+</ScrollView>
