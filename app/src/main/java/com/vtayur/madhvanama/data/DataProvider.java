@@ -60,7 +60,7 @@ public class DataProvider {
 
         String anyResource = lang2Madhvanama.keySet().iterator().next();
 
-        return new ArrayList<String>(DataProvider.getVayuSthuthi(Language.getLanguageEnum(anyResource)).getSectionNames());
+        return new ArrayList<String>(DataProvider.getMadhvanama(Language.getLanguageEnum(anyResource)).getSectionNames());
     }
 
     public static int getBackgroundColor(int location) {
@@ -71,23 +71,23 @@ public class DataProvider {
         Serializer serializer;
         InputStream inputStream;
         try {
-            inputStream = am.open("db/sriharivayustuthi-eng.xml");
+            inputStream = am.open("db/madhvanama-eng.xml");
             serializer = new Persister();
             Madhvanama madhvanama = serializer.read(Madhvanama.class, inputStream);
             lang2Madhvanama.put(madhvanama.getLang(), madhvanama);
-            Log.d(TAG, "* Finished de-serializing the file - sriharivayustuthi-eng.xml *");
+            Log.d(TAG, "* Finished de-serializing the file - madhvanama-eng.xml *");
 
-            inputStream = am.open("db/sriharivayustuthi-kan.xml");
+            inputStream = am.open("db/madhvanama-kan.xml");
             serializer = new Persister();
             madhvanama = serializer.read(Madhvanama.class, inputStream);
             lang2Madhvanama.put(madhvanama.getLang(), madhvanama);
-            Log.d(TAG, "* Finished de-serializing the file - sriharivayustuthi-kan.xml *");
+            Log.d(TAG, "* Finished de-serializing the file - madhvanama-kan.xml *");
 
-            inputStream = am.open("db/sriharivayustuthi-san.xml");
+            inputStream = am.open("db/madhvanama-san.xml");
             serializer = new Persister();
             madhvanama = serializer.read(Madhvanama.class, inputStream);
             lang2Madhvanama.put(madhvanama.getLang(), madhvanama);
-            Log.d(TAG, "* Finished de-serializing the file - sriharivayustuthi-san.xml *");
+            Log.d(TAG, "* Finished de-serializing the file - madhvanama-san.xml *");
 
             System.out.println(lang2Madhvanama.keySet());
 
@@ -100,7 +100,7 @@ public class DataProvider {
         }
     }
 
-    public static Madhvanama getVayuSthuthi(Language lang) {
+    public static Madhvanama getMadhvanama(Language lang) {
         return lang2Madhvanama.get(lang.toString());
     }
 

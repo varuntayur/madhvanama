@@ -37,7 +37,7 @@ import com.vtayur.madhvanama.R;
 import com.vtayur.madhvanama.data.BundleArgs;
 import com.vtayur.madhvanama.data.DataProvider;
 import com.vtayur.madhvanama.data.model.Shloka;
-import com.vtayur.madhvanama.home.Language;
+import com.vtayur.madhvanama.data.Language;
 
 import java.util.ArrayList;
 import java.util.Iterator;

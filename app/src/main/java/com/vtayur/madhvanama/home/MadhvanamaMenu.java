@@ -34,16 +34,16 @@ public enum MadhvanamaMenu {
             else
                 intent = new Intent(activity, StotraInOnePageActivity.class);
 
-            Section secEnglish = DataProvider.getVayuSthuthi(Language.eng).getSection(item);
+            Section secEnglish = DataProvider.getMadhvanama(Language.eng).getSection(item);
 
             if (secEnglish == null) return;
 
-            Section sanVayuStuthi = DataProvider.getVayuSthuthi(language).getSection(item);
+            Section secMadhvanama = DataProvider.getMadhvanama(language).getSection(item);
 
             intent.putExtra(BundleArgs.SECTION_NAME, item);
             intent.putExtra(BundleArgs.PAGE_NUMBER, position);
             intent.putExtra(BundleArgs.ENG_SHLOKA_LIST, (Serializable) secEnglish.getShlokaList());
-            intent.putExtra(BundleArgs.LOCAL_LANG_SHLOKA_LIST, (Serializable) sanVayuStuthi.getShlokaList());
+            intent.putExtra(BundleArgs.LOCAL_LANG_SHLOKA_LIST, (Serializable) secMadhvanama.getShlokaList());
 
             Log.d(TAG, "MadhvanamaMenu item secEnglish ->" + item + " " + secEnglish);
 
