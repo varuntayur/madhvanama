@@ -71,7 +71,7 @@ public class ShlokaSlideActivity extends FragmentActivity {
         ViewPager mPager = (ViewPager) findViewById(R.id.pager);
         mPager.setPageTransformer(true, new ZoomOutPageTransformer());
 
-        mPager.setBackgroundResource(DataProvider.getBackgroundColor(menuPosition - 1));
+        mPager.setBackgroundResource(DataProvider.getBackgroundColor(menuPosition));
 
         PagerAdapter mPagerAdapter = new ShlokaSlidePagerAdapter(mSectionName, engShlokas, localLangShlokas, getFragmentManager(), langTypeface);
 

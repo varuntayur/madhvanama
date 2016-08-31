@@ -93,12 +93,12 @@ public class MainActivity extends AppCompatActivity {
 
                     StaggeredGridView listView = (StaggeredGridView) findViewById(R.id.grid_view);
 
-                    View header = inflater.inflate(R.layout.list_item_header_footer, null);
-                    TextView txtHeaderTitle = (TextView) header.findViewById(R.id.txt_title);
-                    txtHeaderTitle.setText(getResources().getString(R.string.app_name));
+//                    View header = inflater.inflate(R.layout.list_item_header_footer, null);
+                    //TextView txtHeaderTitle = (TextView) header.findViewById(R.id.txt_title);
+                    //txtHeaderTitle.setText(getResources().getString(R.string.app_name));
 
-                    listView.addHeaderView(header);
-                    header.setClickable(false);
+//                    listView.addHeaderView(header);
+//                    header.setClickable(false);
 
                     StaggeredGridAdapter mAdapter = new StaggeredGridAdapter(activity, R.id.txt_line1);
 
