@@ -27,7 +27,7 @@ public enum MadhvanamaMenu {
             Intent intent = null;
 
             SharedPreferences settings = activity.getSharedPreferences(DataProvider.PREFS_NAME, 0);
-            String learningMode = settings.getString(DataProvider.LEARNING_MODE, "");
+            String learningMode = settings.getString(DataProvider.LEARNING_MODE, YesNo.yes.toString()); //default is learning=yes
 
             if (YesNo.yes.toString().equalsIgnoreCase(learningMode))
                 intent = new Intent(activity, ShlokaSlideActivity.class);

@@ -90,7 +90,7 @@ public class SettingsActivity extends Activity {
         String savedLocalLang = settings.getString(DataProvider.SHLOKA_DISP_LANGUAGE, "");
         String learningMode = settings.getString(DataProvider.LEARNING_MODE, "");
         if (savedLocalLang.isEmpty()) {
-            Log.d(TAG, "Language activity_settings are not set - will set to sanskrit and continue");
+            Log.d(TAG, "Language activity_settings are not set - will set to kannada and continue");
         }
         if (learningMode.isEmpty()) {
             Log.d(TAG, "Learning mode activity_settings are not set - will set to Yes and continue");
@@ -109,7 +109,7 @@ public class SettingsActivity extends Activity {
         if (YesNo.getYesNoEnum(learningMode).equals(YesNo.yes)) {
             rbLearnModeYes.setChecked(true);
         } else {
-            rbLearnModeNo.setChecked(true);
+            rbLearnModeYes.setChecked(true); // defaults to learning mode = yes
         }
 
         if(savedRepeatShlokaCnt.isEmpty()){

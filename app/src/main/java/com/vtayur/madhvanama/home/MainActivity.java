@@ -114,11 +114,11 @@ public class MainActivity extends AppCompatActivity {
                     String isSettingAlreadySaved = settings.getString(DataProvider.SHLOKA_DISP_LANGUAGE, "");
                     if (isSettingAlreadySaved.isEmpty()) {
                         SharedPreferences.Editor editor = settings.edit();
-                        editor.putString(DataProvider.SHLOKA_DISP_LANGUAGE, Language.san.toString());
+                        editor.putString(DataProvider.SHLOKA_DISP_LANGUAGE, Language.kan.toString());
 
                         editor.commit();
 
-                        Log.d(TAG, "Setting the default launch preference to Sanskrit at startup - " + settings.getString(DataProvider.SHLOKA_DISP_LANGUAGE, ""));
+                        Log.d(TAG, "Setting the default launch preference to Kannada at startup - " + settings.getString(DataProvider.SHLOKA_DISP_LANGUAGE, ""));
                     }
                     progressDialog.dismiss();
                 }

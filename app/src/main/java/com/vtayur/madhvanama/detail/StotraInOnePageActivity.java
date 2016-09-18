@@ -18,6 +18,7 @@ package com.vtayur.madhvanama.detail;
 
 import android.app.Activity;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -28,6 +29,7 @@ import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -70,7 +72,7 @@ public class StotraInOnePageActivity extends FragmentActivity {
         List<Shloka> localLangShlokas = (List<Shloka>) getIntent().getSerializableExtra(BundleArgs.LOCAL_LANG_SHLOKA_LIST);
         String sectionName = getIntent().getStringExtra(BundleArgs.SECTION_NAME);
 
-        rootLayout.setBackgroundResource(DataProvider.getBackgroundColor(menuPosition - 1));
+        rootLayout.setBackgroundResource(DataProvider.getBackgroundColor(menuPosition));
 
         TextView tvTitle = (TextView) findViewById(R.id.sectiontitle);
         tvTitle.setText(sectionName);
@@ -87,15 +89,29 @@ public class StotraInOnePageActivity extends FragmentActivity {
             LinearLayout ll = new LinearLayout(this);
             ll.setOrientation(LinearLayout.VERTICAL);
 
-            TextView localLang = new TextView(this);
-            localLang.setTypeface(typeface);
-            localLang.setText(shlokaPair.second.getText());
+            if(shlokaPair.second.getText() == null){
+                WebView webView = new WebView(this);
+                ll.addView(webView);
+                webView.setBackgroundColor(Color.TRANSPARENT);
+                webView.loadData(shlokaPair.second.getFormattedExplanation(),"text/html","utf-8");
+            }else{
+                TextView localLang = new TextView(this);
+                localLang.setTypeface(typeface);
+                ll.addView(localLang);
+                localLang.setText(shlokaPair.second.getText());
+            }
 
-            TextView engLang = new TextView(this);
-            engLang.setText(shlokaPair.first.getText());
+            if(shlokaPair.first.getText().isEmpty()){
+                WebView webView = new WebView(this);
+                ll.addView(webView);
+                webView.setBackgroundColor(Color.TRANSPARENT);
+                webView.loadData(shlokaPair.first.getFormattedExplanation(),"text/html","utf-8");
+            }else{
+                TextView engLang = new TextView(this);
+                ll.addView(engLang);
+                engLang.setText(shlokaPair.first.getText());
+            }
 
-            ll.addView(localLang);
-            ll.addView(engLang);
 
             ll.setPadding(0, 5, 0, 50);
             rootLayout.addView(ll);
@@ -142,7 +158,7 @@ public class StotraInOnePageActivity extends FragmentActivity {
 
     private void playMediaTrack(final Activity curActivity) {
         if (!mediaResIterator.hasNext()) {
-            Log.d(TAG, "Done with all streams for media playback");
+            Log.d(TAG, "Completed all media resource playback");
             ImageButton playButton = (ImageButton) curActivity.findViewById(R.id.imageButtonPlay);
             playButton.setClickable(true);
             if(mediaPlayer!=null) {
@@ -152,7 +168,7 @@ public class StotraInOnePageActivity extends FragmentActivity {
             }
 
             Log.d(TAG, "playMediaTrack, how many more to go? " + playCounter.get());
-            if(playCounter.decrementAndGet() >= 0) {
+            if(playCounter.decrementAndGet() > 0) {
                 Log.d(TAG, "playMediaTrack, how many more to go? " + playCounter.get());
                 mediaResIterator = mediaResources.iterator();
                 playMediaTrack(curActivity);
@@ -200,7 +216,7 @@ public class StotraInOnePageActivity extends FragmentActivity {
 
     private List<Integer> getAllMediaResources(String sectionName, int numOfResources) {
         List<Integer> lstRes = new ArrayList<Integer>();
-        for (int i = 1; i <= numOfResources; i++) {
+        for (int i = 0; i <= numOfResources; i++) {
             String resourceName = sectionName.toLowerCase().concat(String.valueOf(i)).replaceAll(" ","");
             int resNameId = getResources().getIdentifier(resourceName, "raw", getPackageName());
             if (resNameId > 0)

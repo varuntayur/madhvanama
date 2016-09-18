@@ -199,7 +199,7 @@ public class ShlokaPageFragment extends Fragment {
     }
 
     private int getResourceName(Activity curActivity) {
-        String displayPageNumber = String.valueOf(getPageNumber() + 1);
+        String displayPageNumber = String.valueOf(getPageNumber());
         String resourceName = getSectionName().toLowerCase().concat(displayPageNumber).replaceAll(" ", "");
         int resNameId = curActivity.getResources().getIdentifier(resourceName, "raw", curActivity.getPackageName());
         Log.d(TAG, "ID fetched for packageName " + curActivity.getPackageName() + " - " + resourceName + " -> " + resNameId);
